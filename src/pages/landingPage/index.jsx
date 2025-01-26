@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import PopUp from "./PopUp";
 
 const LandingPage = () => {
-  // State to manage inputs and result
   const [loanType, setLoanType] = useState("");
   const [loanAmount, setLoanAmount] = useState("");
   const [repaymentPeriod, setRepaymentPeriod] = useState("");
@@ -10,63 +9,58 @@ const LandingPage = () => {
   const [open, setOpen] = useState(false);
 
   const handleProcced = () => {
-     setOpen(true)
-  }
+    setOpen(true);
+  };
 
-  // Calculate button handler
   const handleCalculate = () => {
-    // Validation: Ensure all fields are filled
     if (!loanType || !loanAmount || !repaymentPeriod) {
       alert("Please fill in all fields!");
       return;
     }
 
-    // Loan calculation logic
-    const interestRate = 0.10; // Assuming a fixed 10% interest rate
-    const repaymentMonths = parseInt(repaymentPeriod) * 12; // Convert years to months
-    const totalAmount = parseFloat(loanAmount) * (1 + interestRate); // Total loan with interest
-    const monthlyPayment = (totalAmount / repaymentMonths).toFixed(2); // Monthly payment
+    const interestRate = 0.10;
+    const repaymentMonths = parseInt(repaymentPeriod) * 12;
+    const totalAmount = parseFloat(loanAmount) * (1 + interestRate);
+    const monthlyPayment = (totalAmount / repaymentMonths).toFixed(2);
 
-    // Update state with the result
     setMonthlyPayment(monthlyPayment);
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-gray-200 flex flex-col items-center justify-center">
       {/* Header Section */}
-      <header className="bg-blue-600 w-full py-4 text-white text-center shadow-lg">
-        <h1 className="text-3xl font-bold">Saylani Microfinance</h1>
-        <p className="text-sm mt-2">Empowering Communities with Financial Solutions</p>
+      <header className="bg-gradient-to-r from-green-600 to-teal-500 w-full py-4 text-white text-center shadow-lg">
+        <h1 className="text-4xl font-extrabold">Saylani Microfinance</h1>
+        <p className="text-sm mt-2 font-light">Empowering Communities with Financial Solutions</p>
       </header>
 
       {/* Main Content Section */}
-      <main className="mt-10 w-11/12 max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6">
+      <main className="mt-10 w-11/12 max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Loan Categories */}
-        <div className="bg-white p-6 rounded-lg shadow-lg">
-          <h2 className="text-2xl font-bold mb-4">Loan Categories</h2>
-          <ul className="space-y-2">
-            <li className="bg-blue-50 p-3 rounded-lg shadow-sm hover:bg-blue-100">
+        <div className="bg-gradient-to-br from-gray-800 to-gray-700 p-6 rounded-lg shadow-lg">
+          <h2 className="text-2xl font-bold mb-4 text-green-400">Loan Categories</h2>
+          <ul className="space-y-3">
+            <li className="bg-gray-700 hover:bg-green-600 p-4 rounded-lg shadow transition duration-200">
               Wedding Loans
             </li>
-            <li className="bg-blue-50 p-3 rounded-lg shadow-sm hover:bg-blue-100">
+            <li className="bg-gray-700 hover:bg-green-600 p-4 rounded-lg shadow transition duration-200">
               Home Construction Loans
             </li>
-            <li className="bg-blue-50 p-3 rounded-lg shadow-sm hover:bg-blue-100">
+            <li className="bg-gray-700 hover:bg-green-600 p-4 rounded-lg shadow transition duration-200">
               Business Startup Loans
             </li>
-            <li className="bg-blue-50 p-3 rounded-lg shadow-sm hover:bg-blue-100">
+            <li className="bg-gray-700 hover:bg-green-600 p-4 rounded-lg shadow transition duration-200">
               Education Loans
             </li>
           </ul>
         </div>
 
         {/* Loan Calculator */}
-        <div className="bg-white p-6 rounded-lg shadow-lg">
-          <h2 className="text-2xl font-bold mb-4">Loan Calculator</h2>
+        <div className="bg-gradient-to-br from-gray-800 to-gray-700 p-6 rounded-lg shadow-lg">
+          <h2 className="text-2xl font-bold mb-4 text-green-400">Loan Calculator</h2>
           <form className="space-y-4">
-            {/* Loan Type Selection */}
             <select
-              className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 border border-gray-600 rounded-lg bg-gray-900 text-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500"
               onChange={(e) => setLoanType(e.target.value)}
             >
               <option value="">Select Loan Type</option>
@@ -76,17 +70,15 @@ const LandingPage = () => {
               <option value="Education Loans">Education Loans</option>
             </select>
 
-            {/* Loan Amount Input */}
             <input
               type="number"
               placeholder="Enter Amount"
-              className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 border border-gray-600 rounded-lg bg-gray-900 text-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500"
               onChange={(e) => setLoanAmount(e.target.value)}
             />
 
-            {/* Loan Repayment Period Selection */}
             <select
-              className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 border border-gray-600 rounded-lg bg-gray-900 text-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500"
               onChange={(e) => setRepaymentPeriod(e.target.value)}
             >
               <option value="">Select Repayment Period</option>
@@ -96,34 +88,36 @@ const LandingPage = () => {
               <option value="5">5 years</option>
             </select>
 
-            {/* Calculate Button */}
             <button
               type="button"
-              className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
+              className="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition duration-200"
               onClick={handleCalculate}
             >
               Calculate
             </button>
           </form>
 
-          {/* Display Monthly Payment */}
           {monthlyPayment && (
-            <div className="mt-6 bg-green-50 p-4 rounded-lg shadow">
-              <h3 className="text-lg font-semibold">Calculation Result:</h3>
-              <p>Your Monthly Payment: <span className="font-bold">{monthlyPayment} PKR</span></p>
-              <button className="bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
-              onClick={handleProcced}>Procced</button>
+            <div className="mt-6 bg-gray-900 p-4 rounded-lg shadow-lg">
+              <h3 className="text-lg font-semibold text-green-400">Calculation Result:</h3>
+              <p className="text-gray-300">Your Monthly Payment: <span className="font-bold text-green-500">{monthlyPayment} PKR</span></p>
+              <button
+                className="mt-4 bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition duration-200"
+                onClick={handleProcced}
+              >
+                Proceed
+              </button>
             </div>
           )}
         </div>
       </main>
 
       {/* Footer Section */}
-      <footer className="mt-10 py-4 bg-gray-800 text-white w-full text-center">
+      <footer className="mt-10 py-4 bg-gray-900 text-gray-400 w-full text-center">
         <p>&copy; 2025 Saylani Microfinance. All rights reserved.</p>
       </footer>
 
-      {open ? <PopUp setOpen={setOpen}/> : null}
+      {open ? <PopUp setOpen={setOpen} /> : null}
     </div>
   );
 };

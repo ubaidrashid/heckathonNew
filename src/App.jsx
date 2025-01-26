@@ -3,6 +3,7 @@
 
 import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
+import Reciept from "./pages/Reciept/index.jsx";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -42,6 +43,7 @@ function App() {
           <Route path="/Login" element={<LoginPage />} />
           <Route path="/Register" element={<SignUpPage />} />
           <Route path="/loan" element={<LoanDetail />} />
+          <Route path="/receipt" element={<Reciept />} />
         </Routes>
       </BrowserRouter>
 
